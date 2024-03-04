@@ -1,9 +1,134 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    user-select: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
 }
-@-ms-viewport{
+@-ms-viewport {
   width: device-width;
+}
+body {
+  color: #fff;
+  height: 100vh;
+  overflow: hidden;
+  text-align: center;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+a:hover {
+  color: #00b7fc;
+}
+.start {
+  font-size: 1.5rem;
+}
+h1 {
+  line-height: 1.4;
+  font-size: 4rem;
+  background-image: linear-gradient(90deg, #4b53d7, #00b7fc, #12ef64);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  transition: margin 0.5s ease-out;
+  background: linear-gradient(90deg, #ffa45e, #ec4176, #a4396f);
+}
+.screen.up {
+  margin-top: -100vh;
+}
+.lists {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+}
+.lists li {
+  margin: 10px;
+}
+.btn {
+  background-color: transparent;
+
+  border: 2px solid #986137;
+  color: #fff;
+  cursor: pointer;
+  padding: 0.7rem 1rem;
+  font-size: 1.5rem;
+  width: 12vw;
+}
+.btn:hover {
+  border: 2px solid #12ef64;
+  color: #12ef64;
+}
+.hovered {
+  background: #cfc6c696;
+}
+.hide {
+  opacity: 0;
+}
+.primary {
+  color: #16d9e3;
+}
+.board {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 80vh;
+  height: 80vh;
+  background: linear-gradient(118.38deg, #29323c -4, 6%, #485563 200, 44%);
+  box-shadow: -8px -8px 20px #2a333d, 10px 7px 20px #475462;
+  border-radius: 30px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+.boardFinish {
+  background-image: none;
+  box-shadow: none;
+}
+
+.pet {
+  position: absolute;
+  border-radius: 10%;
+  cursor: pointer;
+}
+
+.changing {
+  animation: changeSlide 0.3s linear forwards;
+}
+@keyframes changeSlide {
+  0% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/*********************** Adaptation  ******************/
+
+@media screen and (orientation: portrait) {
+  .board {
+    width: 80vw;
+    height: 80vw;
+  }
+  .btn {
+    width: 12vh;
+  }
+}
+
+@media screen and (orientation: portrait) and (max-width: 460px) {
+  h1 {
+    font-size: 3rem;
+  }
+  .btn {
+    font-size: 1rem;
+  }
 }
