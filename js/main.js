@@ -79,6 +79,7 @@ function finishGame() {
   board.style.background = "none";
   board.innerHTML = `<h1>Your score is <span class="primary">${score}</span></h1>`;
   setTimeout(() => {
+    clearMoveUp();
     location.reload();
   }, 3000);
 }
