@@ -82,6 +82,12 @@ function finishGame() {
     location.reload();
   }, 3000);
 }
+function clearMoveUp() {
+  for (screen of screens) {
+    screen.classList.remove("hide");
+  }
+  board.classList.remove("boardFinish");
+}
 
 function createRandomPet() {
   const pet = document.createElement("div");
