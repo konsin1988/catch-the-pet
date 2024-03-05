@@ -90,7 +90,7 @@ function createRandomPet() {
   const { width, height } = board.getBoundingClientRect();
   const x = getRandomNumber(15, width - radius - 10);
   const y = getRandomNumber(15, height - radius - 10);
-  pet.style.background = `url(../img/${getRandomNumber(1, 10)}.png)`;
+  pet.style.background = `url(./img/${getRandomNumber(1, 10)}.png)`;
   pet.style.backgroundSize = "cover";
   pet.style.width = `${radius}px`;
   pet.style.height = `${radius}px`;
@@ -100,7 +100,7 @@ function createRandomPet() {
 }
 
 function setRoom() {
-  board.style.background = `url(../img/${getRandomNumber(11, 20)}.png)`;
+  board.style.background = `url(./img/${getRandomNumber(11, 20)}.png)`;
   board.style.backgroundSize = "cover";
 }
 
