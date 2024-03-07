@@ -86,8 +86,10 @@ function finishGame() {
   board.innerHTML = `<h1>Your score is <span class="primary">${score}</span></h1>`;
   setTimeout(() => {
     clearReload();
+  }, 2000);
+  setTimeout(() => {
     location.reload();
-  }, 3000);
+  }, 2300);
 }
 function clearReload() {
   board.classList.remove("boardFinish");
