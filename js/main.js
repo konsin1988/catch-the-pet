@@ -9,6 +9,7 @@ let time = 0;
 let pets = 0;
 let score = 0;
 let petLeft;
+let intervalID;
 
 startBtn.addEventListener("click", (event) => {
   event.preventDefault();
@@ -19,12 +20,16 @@ timeList.addEventListener("click", (event) => {
   if (event.target.classList.contains("timebtn")) {
     time = Number(event.target.dataset.time);
     event.target.classList.add("hovered");
+    setTimeout(() => {
+      event.target.classList.remove("hovered");
+    }, 5000);
     petNumberList.addEventListener("click", (event) => {
       if (event.target.classList.contains("petbtn")) {
         pets = Number(event.target.dataset.number);
         event.target.classList.add("hovered");
         setTimeout(() => {
           screens[1].classList.add("up");
+          event.target.classList.remove("hovered");
           startGame();
         }, 500);
       }
@@ -52,7 +57,7 @@ function createPets() {
 }
 
 function startGame() {
-  setInterval(decreaseTime, 1000);
+  intervalID = setInterval(decreaseTime, 1000);
   setRoom();
   createPets();
   setTime(time);
@@ -60,6 +65,7 @@ function startGame() {
 
 function decreaseTime() {
   if (time === 0) {
+    clearInterval(intervalID);
     finishGame();
   } else {
     let current = --time;
@@ -79,15 +85,19 @@ function finishGame() {
   board.style.background = "none";
   board.innerHTML = `<h1>Your score is <span class="primary">${score}</span></h1>`;
   setTimeout(() => {
-    clearMoveUp();
+    clearReload();
     location.reload();
   }, 3000);
 }
-function clearMoveUp() {
-  for (screen of screens) {
-    screen.classList.remove("hide");
-  }
+function clearReload() {
   board.classList.remove("boardFinish");
+  board.innerHTML = "";
+  petLeft = 0;
+  score = 0;
+  for (screen of screens) {
+    screen.classList.remove("up");
+    console.log("ok");
+  }
 }
 
 function createRandomPet() {
